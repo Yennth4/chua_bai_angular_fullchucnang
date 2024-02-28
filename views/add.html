@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<form ng-submit="add()">
+  <!-- bat buoc co ng-submit -->
+  <div class="mb-3">
+    <label class="form-label">Ten</label>
+    <input type="text" class="form-control" ng-model="nhanvien.hoten">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">SDT</label>
+    <input type="text" class="form-control" ng-model="nhanvien.sdt">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" ng-model="nhanvien.email">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Chuc vu</label>
+    <select ng-model="nhanvien.chucvu" class="form-select">
+      <option value="" disabled >Chon chuc vu</option>
+      <option value="Trưởng phòng">Trưởng phòng</option>
+      <option value="Nhân viên">Nhân viên</option>
+      <option value="Giám đốc">Giám đốc</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Ngay sinh</label>
+    <input type="date" class="form-control" ng-model="nhanvien.ngaysinh">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Them</button>
+  <!-- button phari kieu submit -->
+</form>

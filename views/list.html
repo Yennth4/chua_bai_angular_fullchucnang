@@ -1,0 +1,36 @@
+<h1 ng-bind="title"></h1>
+<a href="#!/employee/add">
+    <button class="btn btn-outline-success">Them dien thoai</button>
+</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Ho ten</th>
+        <th scope="col">SDT</th>
+        <th scope="col">Email</th>
+        <th scope="col">Chuc vu</th>
+        <th scope="col">Ngay sinh</th>
+        <th scope="col">Thao tac</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in listNhanVien">
+        <th>{{ item.id }}</th>
+        <th>{{ item.hoten }}</th>
+        <th>{{ item.sdt }}</th>
+        <th>{{ item.email }}</th>
+        <th>{{ item.chucvu }}</th>
+        <th>{{ item.ngaysinh | date: "dd/MM/yyyy" }}</th>
+
+        <th>
+          
+          <a href="#!/detail/employee/{{item.id}}">
+            <button type="button" class="btn btn-warning">Chi tiet</button>
+          </a>
+        
+          <button type="button" class="btn btn-outline-danger" ng-click="deleteID(item.id)">Xoa</button>
+        </th>
+      </tr>
+    </tbody>
+  </table>

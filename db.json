@@ -1,0 +1,20 @@
+{
+  "nhanvien": [
+    {
+      "id": "002",
+      "hoten": "Hong Thom1",
+      "sdt": "0123456788",
+      "email": "abcd@gmail.com",
+      "chucvu": "nhanvien",
+      "ngaysinh": "02/01/2004"
+    },
+    {
+      "hoten": "111111111111",
+      "sdt": "0987654321",
+      "email": "yennthph31906@fpt.edu.vn",
+      "chucvu": "Trưởng phòng",
+      "ngaysinh": "2024-02-13T17:00:00.000Z",
+      "id": "51a7"
+    }
+  ]
+}
