@@ -1,22 +1,22 @@
-<h1 ng-bind="title"></h1>
+<h1 ng-bind="title" class="text-center mt-3"></h1>
 <a href="#!/employee/add">
-    <button class="btn btn-outline-success">Them dien thoai</button>
+    <button class="btn btn-outline-success">Add phone</button>
 </a>
-<table class="table">
+<table class="table table-bordered table-hover text-center mt-3">
     <thead>
       <tr>
         <th scope="col">STT</th>
-        <th scope="col">Ho ten</th>
-        <th scope="col">SDT</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
         <th scope="col">Email</th>
-        <th scope="col">Chuc vu</th>
-        <th scope="col">Ngay sinh</th>
-        <th scope="col">Thao tac</th>
+        <th scope="col">Position</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="item in listNhanVien">
-        <th>{{ item.id }}</th>
+        <th>{{ $index + 1 }}</th>
         <th>{{ item.hoten }}</th>
         <th>{{ item.sdt }}</th>
         <th>{{ item.email }}</th>
@@ -26,10 +26,13 @@
         <th>
           
           <a href="#!/detail/employee/{{item.id}}">
-            <button type="button" class="btn btn-warning">Chi tiet</button>
+            <button type="button" class="btn btn-warning">Detail</button>
+          </a>
+          <a href="#!/edit/employee/{{item.id}}">
+            <button type="button" class="btn btn-secondary">Edit</button>
           </a>
         
-          <button type="button" class="btn btn-outline-danger" ng-click="deleteID(item.id)">Xoa</button>
+          <button type="button" class="btn btn-outline-danger" ng-click="deleteID(item.id)">Delete</button>
         </th>
       </tr>
     </tbody>

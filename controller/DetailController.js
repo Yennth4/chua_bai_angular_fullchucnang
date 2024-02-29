@@ -1,7 +1,7 @@
 
 window.DetailController = function($scope , $http , $routeParams ){
     //  routeParams : để lấy id trên api  (dùng cho detail và edit)
-    $scope.title = "Chi tiet dien thoai";
+    $scope.title = "DETAIL PHONE";
 
     let api = "http://localhost:3000/nhanvien"
 

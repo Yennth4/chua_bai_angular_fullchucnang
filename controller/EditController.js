@@ -1,5 +1,5 @@
 window.EditController = function($scope , $http , $routeParams , $location){
-    $scope.title = "Chinh sua dien thoai";
+    $scope.title = "EDIT PHONE";
 
     let api = "http://localhost:3000/nhanvien"
 
@@ -21,6 +21,52 @@ window.EditController = function($scope , $http , $routeParams , $location){
     })
 
     $scope.edit = function(){
+        let check = true
+
+        $scope.kiemTra = {
+            hoten: false,
+            sdt: false,
+            email: false,
+            chucvu: false,
+            ngaysinh: false,
+            sdtLaSo: false,
+            sdtLonHon0: false,
+        }
+
+        if (!$scope.nhanvien || !$scope.nhanvien.hoten) {
+            check = false
+            $scope.kiemTra.hoten = true
+        }
+
+        if (!$scope.nhanvien || !$scope.nhanvien.sdt) {
+            check = false
+            $scope.kiemTra.sdt = true
+        }
+        else if (isNaN($scope.nhanvien.sdt)) {
+            check = false
+            $scope.kiemTra.sdtLaSo = true
+        }
+        else if (parseInt($scope.nhanvien.sdt) <= 0) {
+            check = false
+            $scope.kiemTra.sdtLonHon0 = true
+        }
+
+        if (!$scope.nhanvien || !$scope.nhanvien.email) {
+            check = false
+            $scope.kiemTra.email = true
+        }
+
+        if (!$scope.nhanvien || !$scope.nhanvien.chucvu) {
+            check = false
+            $scope.kiemTra.chucvu = true
+        }
+
+        if (!$scope.nhanvien || !$scope.nhanvien.ngaysinh) {
+            check = false
+            $scope.kiemTra.ngaysinh = true
+        }
+
+        if (check) {
         // tao 1 bien nhan vien moi de them
         let newNhanVien = {
             hoten: $scope.nhanvien.hoten,
@@ -30,16 +76,19 @@ window.EditController = function($scope , $http , $routeParams , $location){
             ngaysinh: $scope.nhanvien.ngaysinh,
         }
 
-        // put
-        $http.put( 
-            api + "/" + id , 
+        // post phai co link api vaf nhan vien moi
+        $http.put(
+            api + "/" + id, 
             newNhanVien
         ).then(function (response) {
-            if(response.status == 200){ // chinh thanh 200
-                alert('Ban da sua thanh cong')
+            if(response.status == 200){
+                alert('Edit successfully')
                 $location.path('/list-employee')
             }
         })
+    } else {
+        alert('Please fill in all fields')
+    }
     }
 
 }

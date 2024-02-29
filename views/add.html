@@ -1,32 +1,45 @@
-<h1>{{title}}</h1>
+<h1 ng-bind="title" class="text-center mt-3"></h1>
 <form ng-submit="add()">
   <!-- bat buoc co ng-submit -->
   <div class="mb-3">
-    <label class="form-label">Ten</label>
+    <label class="form-label">Name</label>
     <input type="text" class="form-control" ng-model="nhanvien.hoten">
+    <p ng-if="kiemTra.hoten" class="text-danger">Vui lòng nhập tên</p>
   </div>
   <div class="mb-3">
     <label class="form-label">SDT</label>
     <input type="text" class="form-control" ng-model="nhanvien.sdt">
+    <p ng-if="kiemTra.sdt" class="text-danger">Vui lòng nhập số điện thoại</p>
+    <p ng-if="kiemTra.sdtLaSo" class="text-danger">Số điện thoại phải là số</p>
+    <p ng-if="kiemTra.sdtLonHon0" class="text-danger">Số điện thoại phải là số nguyên dương</p>
+
   </div>
   <div class="mb-3">
     <label class="form-label">Email</label>
     <input type="email" class="form-control" ng-model="nhanvien.email">
+    <p ng-if="kiemTra.email" class="text-danger">Vui lòng nhập email</p>
+
   </div>
   <div class="mb-3">
-    <label class="form-label">Chuc vu</label>
+    <label class="form-label">Chức vụ</label>
     <select ng-model="nhanvien.chucvu" class="form-select">
-      <option value="" disabled >Chon chuc vu</option>
+      <option value="" disabled >Chọn chức vụ</option>
       <option value="Trưởng phòng">Trưởng phòng</option>
       <option value="Nhân viên">Nhân viên</option>
       <option value="Giám đốc">Giám đốc</option>
     </select>
+    <p ng-if="kiemTra.chucvu" class="text-danger">Vui lòng nhập chức vụ</p>
+
   </div>
   <div class="mb-3">
-    <label class="form-label">Ngay sinh</label>
+    <label class="form-label">Ngày sinh</label>
     <input type="date" class="form-control" ng-model="nhanvien.ngaysinh">
+    <p ng-if="kiemTra.ngaysinh" class="text-danger">Vui lòng nhập ngày sinh</p>
   </div>
 
-  <button type="submit" class="btn btn-primary">Them</button>
-  <!-- button phari kieu submit -->
+  <div class="mb-3 text-center">
+      <button type="submit" class="btn btn-success">Add new phone</button>
+      <button type="reset" class="btn btn-outline-info">Reset</button>
+    </div>
+      <!-- button phari kieu submit -->
 </form>
